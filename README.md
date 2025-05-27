@@ -85,6 +85,8 @@ git checkout -b ui/wall-card-design
 
 # Push your branch
 git push origin feature/route-tracking
+or
+git push
 ```
 
 #### Pull Request Process
@@ -199,7 +201,7 @@ npx tsc --noEmit
    ```bash
    git add .
    git commit -m "feat: add wall card component"
-   git push origin feature/wall-cards
+   git push
    ```
 
 ## Available Scripts
@@ -254,7 +256,7 @@ npm install
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+4. Push to the branch (`git push)
 5. Open a Pull Request
 
 ## Team
