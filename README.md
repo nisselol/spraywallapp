@@ -1,137 +1,187 @@
-# Welcome
+# SprayWall App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern climbing route tracking application built with Expo and React Native.
 
-## 🔄 Development Workflow
+[![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev)
+[![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactnative.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
-### 🚀 Getting Started
+## About
 
-1. **Clone and Setup**
+SprayWall App helps climbers track their routes, progress, and share climbing experiences with friends. Built with modern React Native and Expo Router for seamless cross-platform navigation.
+
+## Features
+
+- Route tracking and progress monitoring
+- Cross-platform support (iOS, Android, Web)
+- Modern UI with dark/light theme support
+- File-based routing with Expo Router
+- TypeScript for type safety
+
+## Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Expo CLI (`npm install -g @expo/cli`)
+
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/spraywallapp.git
-   cd spraywallapp
+   git clone https://github.com/YOUR_USERNAME/SprayWallApp.git
+   cd SprayWallApp
+   ```
+
+2. **Install dependencies**
+   ```bash
    npm install
    ```
 
-2. **Start Development Server**
+3. **Start the development server**
    ```bash
    npx expo start
    ```
 
-3. **Choose Your Platform**
+4. **Run on your platform**
    - Press `i` for iOS Simulator
    - Press `a` for Android Emulator  
    - Scan QR code with [Expo Go](https://expo.dev/go) on your device
 
-### 👥 Team Collaboration
+## Project Structure
 
-#### **Branch Strategy**
-   ```bash
-   # Create feature branch
-   git checkout -b feature/route-tracking
-   git checkout -b fix/navigation-bug
-   git checkout -b ui/wall-card-design
-   ```
+```
+SprayWallApp/
+├── app/                      # Screens & Navigation
+│   ├── _layout.tsx          # Root layout
+│   ├── +not-found.tsx       # 404 page
+│   └── (tabs)/              # Tab navigation
+│       ├── _layout.tsx      # Tab layout
+│       ├── index.tsx        # Home screen
+│       └── explore.tsx      # Explore screen
+├── components/              # Reusable UI components
+│   ├── ui/                  # Base UI components
+│   ├── ThemedText.tsx       # Themed text component
+│   ├── ThemedView.tsx       # Themed view component
+│   └── ...                  # Other components
+├── assets/                  # Images, fonts, icons
+├── constants/               # App configuration
+├── hooks/                   # Custom React hooks
+└── package.json            # Dependencies
+```
+
+## Development Workflow
+
+### Team Collaboration
+
+#### Branch Strategy
+```bash
+# Create feature branch
+git checkout -b feature/route-tracking
+git checkout -b fix/navigation-bug
+git checkout -b ui/wall-card-design
 
 # Work on your changes...
 
 # Push your branch
-   ```
-   git push origin feature/route-tracking
-   ```
+git push origin feature/route-tracking
+```
 
-#### **Pull Request Process**
-   1. **Create PR** on GitHub with descriptive title
-   2. **Add description** explaining what you built/fixed
-   3. **Request review** from team members
-   4. **Address feedback** if needed
-   5. **Merge** after approval
+#### Pull Request Process
+1. Create PR on GitHub with descriptive title
+2. Add description explaining what you built/fixed
+3. Request review from team members
+4. Address feedback if needed
+5. Merge after approval
 
-#### **Staying Updated**
-   ```bash
-   # Before starting new work
-   git checkout main
-   git pull origin main
+#### Staying Updated
+```bash
+# Before starting new work
+git checkout main
+git pull origin main
 
-   # Update your feature branch
-   git checkout feature/your-feature
-   git merge main
-   ```
+# Update your feature branch
+git checkout feature/your-feature
+git merge main
+```
 
-### 🛠️ Development Process
+### Development Process
 
-#### **1. Planning**
-   - Create GitHub issue for new features
-   - Discuss approach in team chat
-   - Break down large features into smaller tasks
+#### Adding New Screens
+```typescript
+// For tab screens: app/(tabs)/newscreen.tsx
+export default function NewScreen() {
+  return (
+    <View>
+      <Text>New Screen</Text>
+    </View>
+  );
+}
 
-#### **2. Coding**
-   ```bash
-   # Create new screen
-   touch app/(tabs)/walls.tsx
+// For standalone screens: app/newscreen.tsx
+export default function StandaloneScreen() {
+  return (
+    <View>
+      <Text>Standalone Screen</Text>
+    </View>
+  );
+}
+```
 
-   # Create new component  
-   touch components/WallCard.tsx
+#### Creating Components
+```typescript
+// components/MyComponent.tsx
+interface MyComponentProps {
+  title: string;
+  onPress: () => void;
+}
 
-   # Test your changes
-   npx expo start
-   ```
+export default function MyComponent({ title, onPress }: MyComponentProps) {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text>{title}</Text>
+    </TouchableOpacity>
+  );
+}
+```
 
-#### **3. Code Quality**
-   ```bash
-   # Run linting
-   npm run lint
+#### Adding Navigation
+```typescript
+import { router } from 'expo-router';
 
-   # Type checking
-   npx tsc --noEmit
+// Navigate to screen
+router.push('/profile');
+router.push('/wall/123');
 
-   # Format code (if prettier is setup)
-   npm run format
-   ```
+// Go back
+router.back();
+```
 
-#### **4. Testing**
-   - Test on both iOS and Android
-   - Test different screen sizes
-   - Verify navigation flows work
-   - Check dark/light mode compatibility
+### Common Tasks
 
-### 🔧 Common Tasks
+#### Adding a New Tab
+1. Create screen file: `app/(tabs)/newtab.tsx`
+2. Update tab layout: `app/(tabs)/_layout.tsx`
+```typescript
+<Tabs.Screen
+  name="newtab"
+  options={{
+    title: 'New Tab',
+    tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
+  }}
+/>
+```
 
-#### **Adding a New Tab**
-   1. Create screen file: `app/(tabs)/newtab.tsx`
-   2. Update tab layout: `app/(tabs)/_layout.tsx`
-   ```typescript
-   <Tabs.Screen
-     name="newtab"
-     options={{
-       title: 'New Tab',
-       tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
-     }}
-   />
-   ```
+#### Code Quality
+```bash
+# Run linting
+npm run lint
 
-#### **Adding Navigation**
-   ```typescript
-   import { router } from 'expo-router';
+# Type checking
+npx tsc --noEmit
+```
 
-   // Navigate to screen
-   router.push('/profile');
-   router.push('/wall/123');
-
-   // Go back
-   router.back();
-   ```
-
-#### **Managing State**
-   ```typescript
-   // Local state
-   const [routes, setRoutes] = useState([]);
-
-   // Global state (consider Context API or Zustand)
-   // For complex state management
-   ```
-
-### 📋 Daily Workflow
+### Daily Workflow
 
 1. **Start of Day**
    ```bash
@@ -152,7 +202,24 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    git push origin feature/wall-cards
    ```
 
-### 💡 Best Practices
+## Available Scripts
+
+- `npm start` - Start the Expo development server
+- `npm run android` - Start on Android emulator
+- `npm run ios` - Start on iOS simulator
+- `npm run web` - Start web version
+- `npm run lint` - Run ESLint
+- `npm run reset-project` - Reset to blank project
+
+## Tech Stack
+
+- **Framework**: [Expo](https://expo.dev) with Expo Router
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Styling**: React Native StyleSheet
+- **Navigation**: File-based routing with Expo Router
+- **Development**: Hot reloading with Expo CLI
+
+## Best Practices
 
 - **Commit Messages**: Use conventional commits (`feat:`, `fix:`, `ui:`)
 - **Component Names**: Use PascalCase (`WallCard.tsx`)
@@ -161,49 +228,42 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 - **Documentation**: Update README when adding new features
 - **Performance**: Test on slower devices occasionally
 
-### Main development areas
+## Troubleshooting
 
-1. app/ directory - This is where your screens/pages go
-2. components/ directory - This is where your reusable components go
-3. assets/ directory - Images, fonts, and other static assets
-4. constants/ directory - App constants and configuration
-5. hooks/ directory - Custom React hooks
+### Common Issues
+```bash
+# Clear cache if weird errors
+npx expo start --clear
 
-### 📁 Project Structure
+# Reset Metro bundler
+npx expo start --reset-cache
 
-```
-SprayWallApp/
-├── 📱 app/                    # Screens & Navigation
-│   ├── _layout.tsx           # Root layout
-│   ├── +not-found.tsx        # 404 page
-│   └── (tabs)/               # Tab navigation
-│       ├── _layout.tsx       # Tab layout
-│       ├── index.tsx         # Home screen
-│       └── explore.tsx       # Explore screen
-├── 🧩 components/            # Reusable UI components
-├── 🎨 assets/               # Images, fonts, icons
-├── 🔧 constants/            # App configuration
-├── 🪝 hooks/                # Custom React hooks
-└── 📦 package.json          # Dependencies
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
 ```
 
-## 📚 Tech Stack
-
-- **Framework**: [Expo](https://expo.dev) with Expo Router
-- **Language**: [TypeScript](https://www.typescriptlang.org)
-- **Styling**: React Native StyleSheet
-- **Navigation**: File-based routing with Expo Router
-- **Development**: Hot reloading with Expo CLI
-
-## 📖 Learn More
+## Learn More
 
 - [Expo Documentation](https://docs.expo.dev/)
 - [React Native Documentation](https://reactnative.dev/docs/getting-started)
 - [Expo Router Guide](https://docs.expo.dev/router/introduction/)
 
-## 👥 Team
+## Contributing
 
-- **Nils Johansson** - [@https://github.com/nisselol](https://github.com/nisselol)
-- **Viktor Vikström** - [@https://github.com/viktorvikstrom](https://github.com/viktorvikstrom)
-- **Emil Johansson** - [@https://github.com/emilempe](https://github.com/emilempe)
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Team
+
+- **Nils Johansson** - [@nisselol](https://github.com/nisselol)
+- **Viktor Vikström** - [@viktorvikstrom](https://github.com/viktorvikstrom)
+- **Emil Johansson** - [@emilempe](https://github.com/emilempe)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
