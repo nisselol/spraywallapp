@@ -3,43 +3,57 @@
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Main development areas
+
 1. app/ directory - This is where your screens/pages go
 2. components/ directory - This is where your reusable components go
 3. assets/ directory - Images, fonts, and other static assets
 4. constants/ directory - App constants and configuration
 5. hooks/ directory - Custom React hooks
-   
+
+## Development workflow
+
+1. Edit files in app/ and components/
+2. Save changes - the app will automatically reload
+3. Test on device/simulator using the Expo Go app or development build
+4. Commit changes to git when ready
+5. Push to GitHub for your friends to pull
 ## app/ file structure
-app/
-├── _layout.tsx          # Root layout (wraps entire app)
-├── +not-found.tsx       # 404 page
-└── (tabs)/              # Tab navigation group
-    ├── _layout.tsx      # Tab layout
-    ├── index.tsx        # Home tab (/)
-    └── explore.tsx      # Explore tab (/explore)
 
-## Get started
+SprayWallApp/
+├── 📱 app/ # Screens & Navigation
+│ ├── layout.tsx # Root layout
+│ ├── +not-found.tsx # 404 page
+│ └── (tabs)/ # Tab navigation
+│ ├── layout.tsx # Tab layout
+│ ├── index.tsx # Home screen
+│ └── explore.tsx # Explore screen
+├── 🧩 components/ # Reusable UI components
+├── 🎨 assets/ # Images, fonts, icons
+├── 🔧 constants/ # App configuration
+├── 🪝 hooks/ # Custom React hooks
+└── 📦 package.json # Dependencies
 
-1. Install dependencies
+### Installation
 
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/SprayWallApp.git
+   cd SprayWallApp
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Start the development server**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+4. **Run on your device**
+   - Scan the QR code with [Expo Go](https://expo.dev/go) app
+   - Or press `i` for iOS simulator / `a` for Android emulator
 
 ## Get a fresh project
 
