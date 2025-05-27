@@ -2,6 +2,22 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Main development areas
+1. app/ directory - This is where your screens/pages go
+2. components/ directory - This is where your reusable components go
+3. assets/ directory - Images, fonts, and other static assets
+4. constants/ directory - App constants and configuration
+5. hooks/ directory - Custom React hooks
+   
+## app/ file structure
+app/
+├── _layout.tsx          # Root layout (wraps entire app)
+├── +not-found.tsx       # 404 page
+└── (tabs)/              # Tab navigation group
+    ├── _layout.tsx      # Tab layout
+    ├── index.tsx        # Home tab (/)
+    └── explore.tsx      # Explore tab (/explore)
+
 ## Get started
 
 1. Install dependencies
