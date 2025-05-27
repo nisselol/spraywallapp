@@ -203,7 +203,7 @@ npx tsc --noEmit
    git commit -m "feat: add wall card component"
    git push
    ```
-
+   
 ## Available Scripts
 
 - `npm start` - Start the Expo development server
