@@ -1,7 +1,7 @@
 // Fallback for using MaterialIcons on Android and web.
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
+import { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 import { ComponentProps } from 'react';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
@@ -18,6 +18,37 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  // Climbing-specific icons
+  'mountain.2.fill': 'terrain',
+  'figure.climbing': 'sports',
+  'location.fill': 'location-on',
+  'star.fill': 'star',
+  'star': 'star-border',
+  'heart.fill': 'favorite',
+  'heart': 'favorite-border',
+  'camera.fill': 'camera-alt',
+  'camera': 'camera-alt',
+  'map.fill': 'map',
+  'map': 'map',
+  'plus.circle.fill': 'add-circle',
+  'plus.circle': 'add-circle-outline',
+  'minus.circle.fill': 'remove-circle',
+  'checkmark.circle.fill': 'check-circle',
+  'xmark.circle.fill': 'cancel',
+  'info.circle.fill': 'info',
+  'exclamationmark.triangle.fill': 'warning',
+  'clock.fill': 'schedule',
+  'calendar': 'event',
+  'person.fill': 'person',
+  'person.2.fill': 'group',
+  'gear': 'settings',
+  'list.bullet': 'list',
+  'square.and.arrow.up': 'share',
+  'bookmark.fill': 'bookmark',
+  'bookmark': 'bookmark-border',
+  'flag.fill': 'flag',
+  'trophy.fill': 'emoji-events',
+  'chart.bar.fill': 'bar-chart',
 } as IconMapping;
 
 /**
