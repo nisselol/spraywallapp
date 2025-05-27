@@ -108,7 +108,7 @@ SprayWallApp/
 
 ## 👥 Team
 
-- **Nils Johansson** - [@your-github](https://github.com/nisselol)
-- **Viktor Vikström** - [@friend1-github](https://github.com/viktorvikstrom)
-- **Emil Johansson** - [@friend2-github](https://github.com/emilempe)
+- **Nils Johansson** - [@https://github.com/nisselol](https://github.com/nisselol)
+- **Viktor Vikström** - [@https://github.com/viktorvikstrom](https://github.com/viktorvikstrom)
+- **Emil Johansson** - [@https://github.com/emilempe](https://github.com/emilempe)
 
