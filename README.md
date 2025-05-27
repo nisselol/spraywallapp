@@ -55,26 +55,57 @@ SprayWallApp/
    - Scan the QR code with [Expo Go](https://expo.dev/go) app
    - Or press `i` for iOS simulator / `a` for Android emulator
 
-## Get a fresh project
+## 🛠️ Development
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+### Adding New Screens
+Create files in the `app/` directory:
+```typescript
+// app/profile.tsx - Creates /profile route
+export default function ProfileScreen() {
+  return <Text>Profile Screen</Text>;
+}
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Creating Components
+Add reusable components in `components/`:
+```typescript
+// components/RouteCard.tsx
+export default function RouteCard({ route }) {
+  return <View>{/* Route display logic */}</View>;
+}
+```
 
-## Learn more
+### File-Based Routing
+This project uses [Expo Router](https://docs.expo.dev/router/introduction/) with automatic file-based routing:
+- `app/index.tsx` → `/` (home)
+- `app/profile.tsx` → `/profile`
+- `app/route/[id].tsx` → `/route/123` (dynamic)
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🤝 Contributing
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Join the community
+## 📚 Tech Stack
 
-Join our community of developers creating universal apps.
+- **Framework**: [Expo](https://expo.dev) with Expo Router
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Styling**: React Native StyleSheet
+- **Navigation**: File-based routing with Expo Router
+- **Development**: Hot reloading with Expo CLI
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📖 Learn More
+
+- [Expo Documentation](https://docs.expo.dev/)
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [Expo Router Guide](https://docs.expo.dev/router/introduction/)
+
+## 👥 Team
+
+- **Nils Johansson** - [@your-github](https://github.com/nisselol)
+- **Viktor Vikström** - [@friend1-github](https://github.com/viktorvikstrom)
+- **Emil Johansson** - [@friend2-github](https://github.com/emilempe)
+
