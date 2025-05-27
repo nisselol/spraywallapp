@@ -8,8 +8,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 1. **Clone and Setup**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/SprayWallApp.git
-   cd SprayWallApp
+   git clone https://github.com/YOUR_USERNAME/spraywallapp.git
+   cd spraywallapp
    npm install
    ```
 
