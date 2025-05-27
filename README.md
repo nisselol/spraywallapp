@@ -66,21 +66,23 @@ This project uses [Expo Router](https://docs.expo.dev/router/introduction/) with
 4. Commit changes to git when ready
 5. Push to GitHub for your friends to pull
 
-## app/ file structure
+## 📁 Project Structure
 
+```
 SprayWallApp/
-├── 📱 app/ # Screens & Navigation
-│ ├── layout.tsx # Root layout
-│ ├── +not-found.tsx # 404 page
-│ └── (tabs)/ # Tab navigation
-│ ├── layout.tsx # Tab layout
-│ ├── index.tsx # Home screen
-│ └── explore.tsx # Explore screen
-├── 🧩 components/ # Reusable UI components
-├── 🎨 assets/ # Images, fonts, icons
-├── 🔧 constants/ # App configuration
-├── 🪝 hooks/ # Custom React hooks
-└── 📦 package.json # Dependencies
+├── 📱 app/                    # Screens & Navigation
+│   ├── _layout.tsx           # Root layout
+│   ├── +not-found.tsx        # 404 page
+│   └── (tabs)/               # Tab navigation
+│       ├── _layout.tsx       # Tab layout
+│       ├── index.tsx         # Home screen
+│       └── explore.tsx       # Explore screen
+├── 🧩 components/            # Reusable UI components
+├── 🎨 assets/               # Images, fonts, icons
+├── 🔧 constants/            # App configuration
+├── 🪝 hooks/                # Custom React hooks
+└── 📦 package.json          # Dependencies
+```
 
 ## 🤝 Contributing
 
