@@ -2,55 +2,166 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-### Installation
+## 🔄 Development Workflow
 
-1. **Clone the repository**
+### 🚀 Getting Started
+
+1. **Clone and Setup**
    ```bash
    git clone https://github.com/YOUR_USERNAME/SprayWallApp.git
    cd SprayWallApp
-   ```
-
-2. **Install dependencies**
-   ```bash
    npm install
    ```
 
-3. **Start the development server**
+2. **Start Development Server**
    ```bash
    npx expo start
    ```
 
-4. **Run on your device**
-   - Scan the QR code with [Expo Go](https://expo.dev/go) app
-   - Or press `i` for iOS simulator / `a` for Android emulator
+3. **Choose Your Platform**
+   - Press `i` for iOS Simulator
+   - Press `a` for Android Emulator  
+   - Scan QR code with [Expo Go](https://expo.dev/go) on your device
 
-## 🛠️ Development
+### 👥 Team Collaboration
 
-### Adding New Screens
-Create files in the `app/` directory:
-```typescript
-// app/profile.tsx - Creates /profile route
-export default function ProfileScreen() {
-  return <Text>Profile Screen</Text>;
-}
-```
+#### **Branch Strategy**
+   ```bash
+   # Create feature branch
+   git checkout -b feature/route-tracking
+   git checkout -b fix/navigation-bug
+   git checkout -b ui/wall-card-design
+   ```
 
-### Creating Components
-Add reusable components in `components/`:
-```typescript
-// components/RouteCard.tsx
-export default function RouteCard({ route }) {
-  return <View>{/* Route display logic */}</View>;
-}
-```
+# Work on your changes...
 
-### File-Based Routing
-This project uses [Expo Router](https://docs.expo.dev/router/introduction/) with automatic file-based routing:
-- `app/index.tsx` → `/` (home)
-- `app/profile.tsx` → `/profile`
-- `app/route/[id].tsx` → `/route/123` (dynamic)
+# Push your branch
+   ```
+   git push origin feature/route-tracking
+   ```
 
-## Main development areas
+#### **Pull Request Process**
+   1. **Create PR** on GitHub with descriptive title
+   2. **Add description** explaining what you built/fixed
+   3. **Request review** from team members
+   4. **Address feedback** if needed
+   5. **Merge** after approval
+
+#### **Staying Updated**
+   ```bash
+   # Before starting new work
+   git checkout main
+   git pull origin main
+
+   # Update your feature branch
+   git checkout feature/your-feature
+   git merge main
+   ```
+
+### 🛠️ Development Process
+
+#### **1. Planning**
+   - Create GitHub issue for new features
+   - Discuss approach in team chat
+   - Break down large features into smaller tasks
+
+#### **2. Coding**
+   ```bash
+   # Create new screen
+   touch app/(tabs)/walls.tsx
+
+   # Create new component  
+   touch components/WallCard.tsx
+
+   # Test your changes
+   npx expo start
+   ```
+
+#### **3. Code Quality**
+   ```bash
+   # Run linting
+   npm run lint
+
+   # Type checking
+   npx tsc --noEmit
+
+   # Format code (if prettier is setup)
+   npm run format
+   ```
+
+#### **4. Testing**
+   - Test on both iOS and Android
+   - Test different screen sizes
+   - Verify navigation flows work
+   - Check dark/light mode compatibility
+
+### 🔧 Common Tasks
+
+#### **Adding a New Tab**
+   1. Create screen file: `app/(tabs)/newtab.tsx`
+   2. Update tab layout: `app/(tabs)/_layout.tsx`
+   ```typescript
+   <Tabs.Screen
+     name="newtab"
+     options={{
+       title: 'New Tab',
+       tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
+     }}
+   />
+   ```
+
+#### **Adding Navigation**
+   ```typescript
+   import { router } from 'expo-router';
+
+   // Navigate to screen
+   router.push('/profile');
+   router.push('/wall/123');
+
+   // Go back
+   router.back();
+   ```
+
+#### **Managing State**
+   ```typescript
+   // Local state
+   const [routes, setRoutes] = useState([]);
+
+   // Global state (consider Context API or Zustand)
+   // For complex state management
+   ```
+
+### 📋 Daily Workflow
+
+1. **Start of Day**
+   ```bash
+   git checkout main
+   git pull origin main
+   npx expo start
+   ```
+
+2. **During Development**
+   - Make small, focused commits
+   - Test changes frequently
+   - Push work-in-progress to your branch
+
+3. **End of Day**
+   ```bash
+   git add .
+   git commit -m "feat: add wall card component"
+   git push origin feature/wall-cards
+   ```
+
+### 💡 Best Practices
+
+- **Commit Messages**: Use conventional commits (`feat:`, `fix:`, `ui:`)
+- **Component Names**: Use PascalCase (`WallCard.tsx`)
+- **File Organization**: Group related files together
+- **Code Reviews**: Always review each other's code
+- **Documentation**: Update README when adding new features
+- **Performance**: Test on slower devices occasionally
+
+### Main development areas
 
 1. app/ directory - This is where your screens/pages go
 2. components/ directory - This is where your reusable components go
@@ -58,15 +169,7 @@ This project uses [Expo Router](https://docs.expo.dev/router/introduction/) with
 4. constants/ directory - App constants and configuration
 5. hooks/ directory - Custom React hooks
 
-## Development workflow
-
-1. Edit files in app/ and components/
-2. Save changes - the app will automatically reload
-3. Test on device/simulator using the Expo Go app or development build
-4. Commit changes to git when ready
-5. Push to GitHub for your friends to pull
-
-## 📁 Project Structure
+### 📁 Project Structure
 
 ```
 SprayWallApp/
@@ -83,14 +186,6 @@ SprayWallApp/
 ├── 🪝 hooks/                # Custom React hooks
 └── 📦 package.json          # Dependencies
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📚 Tech Stack
 
